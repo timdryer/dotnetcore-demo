@@ -1,7 +1,9 @@
 # dotnetcore-demo
-This repository will be used to hold a sample dotnetcore razor page demo application.
+This repository will be used to hold a sample dotnetcore razor page demo application (using dotnet core 2.2.) It is the sample app provided by Microsoft and has no external dependencies or database connections.
 
-Here is an outline of the steps needed to deploy to Azure WebApp.
+If you are the intended recipient of this repository, please build the code in this repository and deploy it to Azure. Your final solution should ultimately be automated, such that a code commit will initiate a new build and deployment. Below is a high level overview of the steps I have taken to automate the process. Please be prepared to demo your process and final results to the team. 
+
+Automation steps I have taken to deploy to Azure WebApp.
 * Fork this repo.
 * Create a free account in MS Azure.
 * In Azure portal (portal.azure.com), create a Resource Group. Within the resource group create a WebApp.
@@ -13,3 +15,5 @@ Here is an outline of the steps needed to deploy to Azure WebApp.
 
 The following Pluralsight course is a great resource on this process:
  https://www.pluralsight.com/courses/azure-devops-getting-started
+
+Good luck!
