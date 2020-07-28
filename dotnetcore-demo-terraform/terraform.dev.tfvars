@@ -1,0 +1,2 @@
+ProjectName = "dotnetcoredemo"
+Env = "dev"

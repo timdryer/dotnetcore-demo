@@ -1,0 +1,331 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Tim.Dryer> az login
+Note, we have launched a browser for you to login. For old experience with device code, use "az login --use-device-code"
+You have logged in. Now let us find all the subscriptions to which you have access...
+[Subscriptions Redacted]
+PS C:\Users\Tim.Dryer> az account set --subscription <subscription ID redacted>
+PS C:\Users\Tim.Dryer> cd C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> terraform init
+Terraform initialized in an empty directory!
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.
+
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> terraform workspace new dev
+Created and switched to workspace "dev"!
+
+You're now on a new, empty workspace. Workspaces isolate their state,
+so if you run "terraform plan" Terraform will not see any existing state
+for this configuration.
+
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> terraform plan -var-file .\terraform.dev.tfvars -out dotnetcoredemo-dev.plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # azurerm_app_service.project1 will be created
+  + resource "azurerm_app_service" "project1" {
+      + app_service_plan_id            = (known after apply)
+      + app_settings                   = (known after apply)
+      + client_affinity_enabled        = false
+      + client_cert_enabled            = false
+      + default_site_hostname          = (known after apply)
+      + enabled                        = true
+      + https_only                     = false
+      + id                             = (known after apply)
+      + location                       = "centralus"
+      + name                           = "dotnetcoredemo-dev-appservice"
+      + outbound_ip_addresses          = (known after apply)
+      + possible_outbound_ip_addresses = (known after apply)
+      + resource_group_name            = "dotnetcoredemo-dev"
+      + site_credential                = (known after apply)
+      + source_control                 = (known after apply)
+
+      + auth_settings {
+          + additional_login_params        = (known after apply)
+          + allowed_external_redirect_urls = (known after apply)
+          + default_provider               = (known after apply)
+          + enabled                        = (known after apply)
+          + issuer                         = (known after apply)
+          + runtime_version                = (known after apply)
+          + token_refresh_extension_hours  = (known after apply)
+          + token_store_enabled            = (known after apply)
+          + unauthenticated_client_action  = (known after apply)
+
+          + active_directory {
+              + allowed_audiences = (known after apply)
+              + client_id         = (known after apply)
+              + client_secret     = (sensitive value)
+            }
+
+          + facebook {
+              + app_id       = (known after apply)
+              + app_secret   = (sensitive value)
+              + oauth_scopes = (known after apply)
+            }
+
+          + google {
+              + client_id     = (known after apply)
+              + client_secret = (sensitive value)
+              + oauth_scopes  = (known after apply)
+            }
+
+          + microsoft {
+              + client_id     = (known after apply)
+              + client_secret = (sensitive value)
+              + oauth_scopes  = (known after apply)
+            }
+
+          + twitter {
+              + consumer_key    = (known after apply)
+              + consumer_secret = (sensitive value)
+            }
+        }
+
+      + connection_string {
+          + name  = (known after apply)
+          + type  = (known after apply)
+          + value = (sensitive value)
+        }
+
+      + identity {
+          + identity_ids = (known after apply)
+          + principal_id = (known after apply)
+          + tenant_id    = (known after apply)
+          + type         = (known after apply)
+        }
+
+      + logs {
+          + application_logs {
+              + azure_blob_storage {
+                  + level             = (known after apply)
+                  + retention_in_days = (known after apply)
+                  + sas_url           = (sensitive value)
+                }
+            }
+
+          + http_logs {
+              + azure_blob_storage {
+                  + retention_in_days = (known after apply)
+                  + sas_url           = (sensitive value)
+                }
+
+              + file_system {
+                  + retention_in_days = (known after apply)
+                  + retention_in_mb   = (known after apply)
+                }
+            }
+        }
+
+      + site_config {
+          + always_on                   = (known after apply)
+          + app_command_line            = (known after apply)
+          + auto_swap_slot_name         = (known after apply)
+          + default_documents           = (known after apply)
+          + dotnet_framework_version    = (known after apply)
+          + ftps_state                  = (known after apply)
+          + health_check_path           = (known after apply)
+          + http2_enabled               = (known after apply)
+          + ip_restriction              = (known after apply)
+          + java_container              = (known after apply)
+          + java_container_version      = (known after apply)
+          + java_version                = (known after apply)
+          + linux_fx_version            = (known after apply)
+          + local_mysql_enabled         = (known after apply)
+          + managed_pipeline_mode       = (known after apply)
+          + min_tls_version             = (known after apply)
+          + php_version                 = (known after apply)
+          + python_version              = (known after apply)
+          + remote_debugging_enabled    = (known after apply)
+          + remote_debugging_version    = (known after apply)
+          + scm_ip_restriction          = (known after apply)
+          + scm_type                    = (known after apply)
+          + scm_use_main_ip_restriction = (known after apply)
+          + use_32_bit_worker_process   = (known after apply)
+          + websockets_enabled          = (known after apply)
+          + windows_fx_version          = (known after apply)
+
+          + cors {
+              + allowed_origins     = (known after apply)
+              + support_credentials = (known after apply)
+            }
+        }
+
+      + storage_account {
+          + access_key   = (sensitive value)
+          + account_name = (known after apply)
+          + mount_path   = (known after apply)
+          + name         = (known after apply)
+          + share_name   = (known after apply)
+          + type         = (known after apply)
+        }
+    }
+
+  # azurerm_app_service_plan.project1 will be created
+  + resource "azurerm_app_service_plan" "project1" {
+      + id                           = (known after apply)
+      + kind                         = "Windows"
+      + location                     = "centralus"
+      + maximum_elastic_worker_count = (known after apply)
+      + maximum_number_of_workers    = (known after apply)
+      + name                         = "dotnetcoredemo-dev-appserviceplan"
+      + resource_group_name          = "dotnetcoredemo-dev"
+
+      + sku {
+          + capacity = (known after apply)
+          + size     = "f1"
+          + tier     = "free"
+        }
+    }
+
+  # azurerm_application_insights.project1 will be created
+  + resource "azurerm_application_insights" "project1" {
+      + app_id                                = (known after apply)
+      + application_type                      = "web"
+      + daily_data_cap_in_gb                  = (known after apply)
+      + daily_data_cap_notifications_disabled = (known after apply)
+      + disable_ip_masking                    = false
+      + id                                    = (known after apply)
+      + instrumentation_key                   = (sensitive value)
+      + location                              = "centralus"
+      + name                                  = "dotnetcoredemo-dev-appinsights"
+      + resource_group_name                   = "dotnetcoredemo-dev"
+      + retention_in_days                     = 90
+      + sampling_percentage                   = 100
+    }
+
+  # azurerm_resource_group.project1 will be created
+  + resource "azurerm_resource_group" "project1" {
+      + id       = (known after apply)
+      + location = "centralus"
+      + name     = "dotnetcoredemo-dev"
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+This plan was saved to: dotnetcoredemo-dev.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "dotnetcoredemo-dev.plan"
+
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> terraform apply dotnetcoredemo-dev.plan
+azurerm_resource_group.project1: Creating...
+azurerm_resource_group.project1: Creation complete after 1s [id=/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev]
+azurerm_app_service_plan.project1: Creating...
+azurerm_application_insights.project1: Creating...
+azurerm_app_service_plan.project1: Creation complete after 6s [id=/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/Microsoft.Web/serverfarms/dotnetcoredemo-dev-appserviceplan]
+azurerm_app_service.project1: Creating...
+azurerm_application_insights.project1: Still creating... [10s elapsed]
+azurerm_application_insights.project1: Creation complete after 15s [id=/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/microsoft.insights/components/dotnetcoredemo-dev-appinsights]
+azurerm_app_service.project1: Still creating... [10s elapsed]
+azurerm_app_service.project1: Still creating... [20s elapsed]
+azurerm_app_service.project1: Creation complete after 29s [id=/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/Microsoft.Web/sites/dotnetcoredemo-dev-appservice]
+
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: terraform.tfstate
+
+Outputs:
+
+app_id = 389b87d7-0f3c-4421-841a-37468a8baec2
+instrumentation_key = 8f5c7368-e8d8-4af0-b1cf-f17bc30fbbdd
+PS C:\00OneDrive\Learning\Terraform\dotnetcore-demo-terraform> az resource list --resource-group dotnetcoredemo-dev
+[
+  {
+    "id": "/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/microsoft.alertsmanagement/smartDetectorAlertRules/Failure Anomalies - dotnetcoredemo-dev-appinsights",
+    "identity": null,
+    "kind": null,
+    "location": "global",
+    "managedBy": null,
+    "name": "Failure Anomalies - dotnetcoredemo-dev-appinsights",
+    "plan": null,
+    "properties": null,
+    "resourceGroup": "dotnetcoredemo-dev",
+    "sku": null,
+    "tags": {},
+    "type": "microsoft.alertsmanagement/smartDetectorAlertRules"
+  },
+  {
+    "id": "/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/Microsoft.Insights/components/dotnetcoredemo-dev-appinsights",
+    "identity": null,
+    "kind": "web",
+    "location": "centralus",
+    "managedBy": null,
+    "name": "dotnetcoredemo-dev-appinsights",
+    "plan": null,
+    "properties": null,
+    "resourceGroup": "dotnetcoredemo-dev",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Insights/components"
+  },
+  {
+    "id": "/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/Microsoft.Web/serverFarms/dotnetcoredemo-dev-appserviceplan",
+    "identity": null,
+    "kind": "Windows",
+    "location": "centralus",
+    "managedBy": null,
+    "name": "dotnetcoredemo-dev-appserviceplan",
+    "plan": null,
+    "properties": null,
+    "resourceGroup": "dotnetcoredemo-dev",
+    "sku": {
+      "capacity": 0,
+      "family": "F",
+      "model": null,
+      "name": "F1",
+      "size": "F1",
+      "tier": "Free"
+    },
+    "tags": {},
+    "type": "Microsoft.Web/serverFarms"
+  },
+  {
+    "id": "/subscriptions/<subscription ID redacted>/resourceGroups/dotnetcoredemo-dev/providers/Microsoft.Web/sites/dotnetcoredemo-dev-appservice",
+    "identity": null,
+    "kind": "app",
+    "location": "centralus",
+    "managedBy": null,
+    "name": "dotnetcoredemo-dev-appservice",
+    "plan": null,
+    "properties": null,
+    "resourceGroup": "dotnetcoredemo-dev",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Web/sites"
+  }
+]
